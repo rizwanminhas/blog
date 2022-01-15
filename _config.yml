@@ -1,1 +1,8 @@
-theme: jekyll-theme-minimal
+# removed "theme: minima" because I am using a regular theme.
+# theme: minima
+plugins:
+  - jekyll-feed
+
+
+title: Rizwan Minhas's blog
+author: Rizwan Minhas
