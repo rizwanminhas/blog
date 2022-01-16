@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Multiple Java versions setup on macOS | Rizwan Minhas’s blog</title>
+<title>Multiple Java setup on macOS | Rizwan Minhas’s blog</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Multiple Java versions setup on macOS" />
+<meta property="og:title" content="Multiple Java setup on macOS" />
 <meta name="author" content="Rizwan Minhas" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Easy way to manage multiple Java versions on macOS" />
-<meta property="og:description" content="Easy way to manage multiple Java versions on macOS" />
+<meta name="description" content="A simple way to manage multiple Java versions on macOS" />
+<meta property="og:description" content="A simple way to manage multiple Java versions on macOS" />
 <link rel="canonical" href="http://localhost:4000/2022/01/15/multiple-java-versions-on-mac.html" />
 <meta property="og:url" content="http://localhost:4000/2022/01/15/multiple-java-versions-on-mac.html" />
 <meta property="og:site_name" content="Rizwan Minhas’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-15T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Multiple Java versions setup on macOS" />
+<meta property="twitter:title" content="Multiple Java setup on macOS" />
 <script type="application/ld+json">
-{"description":"Easy way to manage multiple Java versions on macOS","@type":"BlogPosting","headline":"Multiple Java versions setup on macOS","dateModified":"2022-01-15T00:00:00-05:00","datePublished":"2022-01-15T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/01/15/multiple-java-versions-on-mac.html"},"author":{"@type":"Person","name":"Rizwan Minhas"},"url":"http://localhost:4000/2022/01/15/multiple-java-versions-on-mac.html","@context":"https://schema.org"}</script>
+{"description":"A simple way to manage multiple Java versions on macOS","@type":"BlogPosting","headline":"Multiple Java setup on macOS","dateModified":"2022-01-15T00:00:00-05:00","datePublished":"2022-01-15T00:00:00-05:00","author":{"@type":"Person","name":"Rizwan Minhas"},"url":"http://localhost:4000/2022/01/15/multiple-java-versions-on-mac.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/01/15/multiple-java-versions-on-mac.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rizwan Minhas's blog" /></head>
 <body><header class="site-header" role="banner">
@@ -41,14 +41,37 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Multiple Java versions setup on macOS</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Multiple Java setup on macOS</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2022-01-15T00:00:00-05:00" itemprop="datePublished">Jan 15, 2022
       </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Rizwan Minhas</span></span></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>This is a test…</p>
+    <p>There are different ways to setup multiple Java versions on a macOS e.g. you could use <a href="https://sdkman.io/">sdkman</a> or <a href="https://www.jenv.be/">jEnv</a> but in this post I will show you how to do it without using any of these tools.</p>
+
+<ol>
+  <li>
+    <p>Open a terminal and type <code class="language-plaintext highlighter-rouge">/usr/libexe/java_home -V</code>.</p>
+
+    <p>This will show you all the currently installed JVMs on your machine. In my case I have 3 JVMs installed: 
+ <a href="../../../assets/2022-01/multiple_java_versions.png"><img src="../../../assets/2022-01/multiple_java_versions.png" alt="multiple installed java versions" /></a></p>
+  </li>
+  <li>
+    <p>If you want to install more JVMs then install from <a href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a>. <strong>Note:</strong> You will have to create an account to install older versions like JDK 8 or 11.</p>
+  </li>
+  <li>
+    <p>Open your your <code class="language-plaintext highlighter-rouge">~/.bash_profile</code> or <code class="language-plaintext highlighter-rouge">~/.zshrc</code> and enter the following (<em>ofcourse for these may differ based on what java versions you have decided to use</em>):</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">alias </span><span class="nv">java17</span><span class="o">=</span><span class="s2">"export JAVA_HOME=</span><span class="si">$(</span>/usr/libexec/java_home <span class="nt">-v17</span><span class="si">)</span><span class="s2">"</span>
+ <span class="nb">alias </span><span class="nv">java11</span><span class="o">=</span><span class="s2">"export JAVA_HOME=</span><span class="si">$(</span>/usr/libexec/java_home <span class="nt">-v11</span><span class="si">)</span><span class="s2">"</span>
+ <span class="nb">alias </span><span class="nv">java8</span><span class="o">=</span><span class="s2">"export JAVA_HOME=</span><span class="si">$(</span>/usr/libexec/java_home <span class="nt">-v1</span>.8.0<span class="si">)</span><span class="s2">"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Now restart the terminal or source the config file and type <code class="language-plaintext highlighter-rouge">java17</code> to set <code class="language-plaintext highlighter-rouge">JAVA_HOME</code> to version 17 or type <code class="language-plaintext highlighter-rouge">java8</code> to set it to version 8 etc.</p>
+  </li>
+</ol>
 
   </div><a class="u-url" href="/2022/01/15/multiple-java-versions-on-mac.html" hidden></a>
 </article>
