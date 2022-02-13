@@ -33,7 +33,6 @@ result.onComplete({
 })
 
 Await.result(result, 3.seconds)
-
 ```
 
 **Note:** `firstCompleteOf` only cares about the first successful future to complete, it doesn't care if the other futures fail or succeed.
@@ -43,7 +42,7 @@ Await.result(result, 3.seconds)
 
 **Poblem**: If a function returns a `Future` of something and if that function can also throw an exception then calling `Future.sequence` on the response of such a function will stop the execution on the first exception. To avoid this problem you can use the following recipe:
 
-```scala
+```Scala
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, Future}
