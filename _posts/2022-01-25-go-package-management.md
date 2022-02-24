@@ -11,7 +11,7 @@ First create a go module using `go mod init myapp`.
 
 Then create the following files:
 
-1. `myapp/file1.go` with the following content:
+1- `myapp/file1.go` with the following content:
 
 ```go
 package main
@@ -23,7 +23,8 @@ func demo() {
 }
 
 ```
-2. `myapp/utils/file2.go` with the following content:
+
+2- `myapp/utils/file2.go` with the following content:
 
 ```go
 package utils
@@ -35,7 +36,7 @@ func Demo() {
 }
 ```
 
-3. Finall create the `myapp/main.go` with the following content:
+3- Finally create the `myapp/main.go` with the following content:
 
 ```go
 package main
@@ -51,7 +52,7 @@ func main() {
 }
 ```
 
-4. Now navigate to the root of `myapp` and execute `go run .` and you will see the following output:
+4- Now navigate to the root of `myapp` and execute `go run .` and you will see the following output:
 
 ```
 message from file1
