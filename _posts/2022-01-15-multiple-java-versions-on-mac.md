@@ -7,7 +7,7 @@ excerpt: A simple way to manage multiple Java versions on macOS
 
 There are different ways to setup multiple Java versions on a macOS e.g. you could use [sdkman](https://sdkman.io/) or [jEnv](https://www.jenv.be/) but in this post I will show you how to do it without using any of these tools.
 
-1. Open a terminal and type ```/usr/libexe/java_home -V```. 
+1. Open a terminal and type ```/usr/libexec/java_home -V```. 
 
     This will show you all the currently installed JVMs on your machine. In my case I have 3 JVMs installed: 
     [![multiple installed java versions](../../../assets/2022-01/multiple_java_versions.png)](../../../assets/2022-01/multiple_java_versions.png)
